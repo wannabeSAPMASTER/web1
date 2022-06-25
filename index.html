@@ -3,9 +3,73 @@
   <head>
     <title>WEB1 - WEB</title>
     <meta charset="utf-8">
+    <script>
+    var Links = {
+      setColor:function(color){
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while(i < alist.length){
+          alist[i].style.color = color;
+          i=i+1;
+        }
+      }
+    }
+
+//    function LinksSetColor(color){
+//      var alist = document.querySelectorAll('a');
+//      var i = 0;
+//      while(i < alist.length){
+//        alist[i].style.color = color;
+//        i=i+1;
+//      }
+//    }
+
+    var Body = {
+      setColor:function(color) {
+        document.querySelector('body').style.color = color;
+      },
+      setBackgroundColor:function(color){
+        document.querySelector('body').style.backgroundColor = color;
+      }
+    }
+//    function BodySetColor(color){
+//      document.querySelector('body').style.color = color;
+//    }
+
+//    function BodySetBackgroundColor(color){
+//      document.querySelector('body').style.backgroundColor = color;
+//    }
+
+    function nightDayHandler(self){
+      var target = document.querySelector('body');
+
+      if(self.value==='night'){ // this 라는 값은 함수 안에서, input의 버튼을 가리키지 못함.
+        Body.setBackgroundColor('black');
+//      BodySetBackgroundColor('black');
+        Body.setColor('white');
+//      BodySetColor('white');
+        self.value = 'day';
+
+        Links.setColor('powderblue');
+
+      } else {
+        Body.setBackgroundColor('white');
+        Body.setColor('black');
+        self.value = 'night';
+
+        Links.setColor('blue');
+      }
+    }
+    </script>
+
   </head>
-  <body>
+  <body id="bdy">
     <h1><a href="index.html">WEB</a></h1>
+
+    <input type="button" value="night" onclick="
+      nightDayHandler(this);
+
+    ">
     <ul>
       <li><a href="1.html">1. HTML</a></li>
       <li><a href="2.html">2. CSS</a></li>

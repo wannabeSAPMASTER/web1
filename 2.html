@@ -4,8 +4,33 @@
     <title>WEB1 - CSS</title>
     <meta charset="utf-8">
   </head>
-  <body>
+  <body id="bdy">
     <h1><a href="index.html">WEB</a></h1>
+    <input id="night_day" type="button" value="night" onclick="
+      if(document.querySelector('#night_day').value==='night'){
+        document.querySelector('body').style.backgroundColor = 'black';
+        document.querySelector('body').style.color = 'white';
+        document.querySelector('#night_day').value = 'day';
+
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while(i < alist.length){
+          alist[i].style.color = 'powderblue';
+          i=i+1;
+        }
+      } else {
+        document.querySelector('#bdy').style.backgroundColor = 'white';
+        document.querySelector('#bdy').style.color = 'black';
+        document.querySelector('#night_day').value = 'night';
+
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while(i < alist.length){
+          alist[i].style.color = 'blue';
+          i=i+1;
+        }
+      }
+    ">
     <ul>
       <li><a href="1.html">1. HTML</a></li>
       <li><a href="2.html">2. CSS</a></li>
@@ -21,5 +46,21 @@
 The name cascading comes from the specified priority scheme to determine which style rule applies if more than one rule matches a particular element. This cascading priority scheme is predictable.
 
 The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS validation service for CSS documents.</p>
+
+<input type="button" value="night" onclick="
+
+  var target = document.querySelector('body');
+
+  if(this.value==='night'){
+    target.style.backgroundColor = 'black';
+    target.style.color = 'white';
+    this.value = 'day';
+  } else {
+    target.style.backgroundColor = 'white';
+    target.style.color = 'black';
+    this.value = 'night';
+  }
+">
+
   </body>
 </html>
